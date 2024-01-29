@@ -33,6 +33,8 @@ $ yarn install
 ```
 
 ## Running the app
+Specify the environment variables in the `.env` file.
+Replace the values with your own values.
 
 ```bash
 # development

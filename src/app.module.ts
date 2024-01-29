@@ -1,5 +1,6 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -11,9 +12,12 @@ import { StudentModule } from './student/student.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    }),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb+srv://haidao549:haideptrai@clusters.m14nthm.mongodb.net/nestjs-graphql?retryWrites=true&w=majority',
+      url: process.env.MONGO_URI,
       synchronize: true,
       entities: [Lesson, Student],
     }),
