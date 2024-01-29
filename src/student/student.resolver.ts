@@ -3,23 +3,23 @@ import { CreateStudentInput } from './student.input';
 import { StudentService } from './student.service';
 import { StudentType } from './student.type';
 
-@Resolver((of) => StudentType)
+@Resolver(() => StudentType)
 export class StudentResolver {
   constructor(private studentService: StudentService) {}
 
-  @Mutation((returns) => StudentType)
+  @Mutation(() => StudentType)
   async createStudent(
     @Args('createStudentInput') createStudentInput: CreateStudentInput,
   ) {
     return await this.studentService.createStudent(createStudentInput);
   }
 
-  @Query((returns) => [StudentType])
+  @Query(() => [StudentType])
   async students() {
     return await this.studentService.getStudents();
   }
 
-  @Query((returns) => StudentType)
+  @Query(() => StudentType)
   async student(@Args('id') id: string) {
     return await this.studentService.getStudent(id);
   }
