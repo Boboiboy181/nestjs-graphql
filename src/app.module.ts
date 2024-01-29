@@ -11,7 +11,7 @@ import { LessonModule } from './lesson/lesson.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb+srv://haidao549:haideptrai@clusters.m14nthm.mongodb.net/?retryWrites=true&w=majority',
+      url: 'mongodb+srv://haidao549:haideptrai@clusters.m14nthm.mongodb.net/nestjs-graphql?retryWrites=true&w=majority',
       synchronize: true,
       useUnifiedTopology: true,
       entities: [Lesson],
